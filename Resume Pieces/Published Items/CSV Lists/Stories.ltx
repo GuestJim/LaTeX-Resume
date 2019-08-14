@@ -1,0 +1,21 @@
+\documentclass{article}
+
+\input{"Preamble - CSV Lists.tex"}
+
+\zclear
+\zstep{1}
+
+\begin{document}
+
+\begin{multicols*}{2}
+\raggedcolumns
+
+\section*{Stories}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Stories.csv"}
+{\zbox{\insertTitle~-~\href{\inserteBookLink}{\inserteBook},~\href{\insertprintLink}{\insertpaperback}}}
+\end{multicols*}
+
+\end{document}
+
+%Title,Date,eBook,eBookLink,paperback,printLink

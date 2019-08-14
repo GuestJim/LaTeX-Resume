@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\input{"Preamble - CSV Lists.tex"}
+
+\zclear
+\zstep{1}
+
+\begin{document}
+
+\begin{multicols*}{3}
+%\setlength\columnseprule{1pt}
+\raggedcolumns
+
+\section*{Game Reviews}
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Reviews - Released.csv"}
+{\zbox{	\textbf{\href{\insertLink}{\insertTitle}}	\hfill	\insertDate}}
+\zclear
+
+\section*{Review Playthroughs}
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Reviews - Released.csv"}
+{\setbox0=\hbox{\insertYTPlaythrough\unskip}\ifdim\wd0=0pt%
+\else%
+\zbox{\textbf{\href{\insertYTPlaythrough}{\insertTitle}}	\hfill	\insertDate}%
+\fi%
+}
+\zclear
+
+\section*{Game Tweak Guides/Performance Analyses}
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Performance Analyses - Released.csv"}
+{\zbox{		\textbf{\href{\insertLink}{\insertTitle}}	\hfill	\insertDate}}
+\setcounter{box}{0}
+
+\section*{Misc. Articles}
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Misc. Articles - Released.csv"}
+{\zbox{		\textbf{\href{\insertLink}{\insertTitle}}	\hfill	\insertDate}}
+
+\end{multicols*}
+
+\end{document}
+
+Date,Title,Link,Provided,Bundle,BLink

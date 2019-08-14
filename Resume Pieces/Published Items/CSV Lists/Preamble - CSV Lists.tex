@@ -1,0 +1,47 @@
+\usepackage{microtype}	%makes fi not 1 in PDF
+	\DisableLigatures[f]{encoding=T1}
+\usepackage[T1]{fontenc}
+	
+\usepackage{geometry}
+\geometry{
+	top=0.5in,
+	left=0.7in,
+	right=0.7in,
+	bottom=0.5in
+}
+
+\pagestyle{empty} % turn off page numbering
+%\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+%\setlength{\intextsep}{2.0pt plus 2.0pt minus 2.0pt}
+%\setlength{\columnsep}{18pt}
+
+\usepackage{csvtools,csvsort}
+\setcsvseparator{,}
+
+\usepackage{multicol}
+
+\usepackage[bookmarks=false]{hyperref}
+\usepackage[table]{xcolor}
+
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black},
+}
+
+\usepackage[document]{ragged2e}
+
+\usepackage{hanging}
+
+\usepackage[none]{hyphenat}
+
+\usepackage[defaultsans]{droidsans}
+\usepackage[utf8]{inputenc}	%enables UTF8 encoding so ' work now
+
+\usepackage{totcount}
+
+%Zebra Boxes Code
+
+\input{"Zebra.tex"}

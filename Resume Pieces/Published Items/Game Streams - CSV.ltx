@@ -1,0 +1,11 @@
+\zclear
+
+\textbf{OCC Game Streams}:
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Game Streams - OCC.csv"}{
+	\zbox{	\textbf{\insertDate}, \href{\insertLink}{\insertGame}~\insertNote}%
+}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Game Streams - GuestJim.csv"}{
+	\zbox{	\textbf{\insertDate}, \href{\insertLink}{\insertGame}~\insertNote}%
+}

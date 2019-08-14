@@ -1,0 +1,19 @@
+All Videos - 563 -- Games - 51
+388:42:17
+
+Heart Rate Videos - 182 -- Games - 20
+131:37:11
+
+Gaze Tracking Videos - 148 -- Games - 17
+91:23:54
+
+Both Heart Rate and Gaze Tracking Videos - 233 -- Games - 14
+165:41:12
+
+Combined with Both
+All Heart Rate Videos - 415 -- Games - 34
+297:18:23
+
+All Gaze Tracking Videos - 381 -- Games - 31
+257:05:06
+

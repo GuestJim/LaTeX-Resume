@@ -1,0 +1,10 @@
+\newtotcounter{tweak}
+\setcounter{tweak}{0}
+
+\zclear
+
+\parbox{\columnwidth}{\textbf{List of Game Tweak Guides/Performance Analyses} \mbox{(\total{tweak} total)}:}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Performance Analyses - Released.csv"}{
+	\zbullet{	\stepcounter{tweak}	\href{\insertLink}{\insertTitle}}%
+}

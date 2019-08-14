@@ -1,0 +1,10 @@
+\zclear
+
+\textbf{Review Playthroughs:}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Reviews - Released.csv"}
+{\setbox0=\hbox{\insertYTPlaythrough\unskip}\ifdim\wd0=0pt%
+\else%
+\zbullet	{\href{\insertYTPlaythrough}{\insertTitle}}%
+\fi%
+}

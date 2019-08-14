@@ -1,0 +1,14 @@
+\newtotcounter{TBOG}
+\setcounter{TBOG}{0}
+
+\zclear
+
+\newcommand{\TBOGLength}{%	this prevents an extra space being added
+	\input{"Resume Pieces/Published Items/CSV Lists/TBOG Length.txt"}	\hspace{-0.5em}%	this removes the space at the end
+}
+
+\parbox{\columnwidth}{\textbf{The Body on Games Videos} \mbox{(Videos: \total{TBOG}, Length: \TBOGLength)} \href{https://calendar.google.com/calendar/embed?src=t7sqia6lh9jhkkfqot4d7qo6sg\%40group.calendar.google.com&ctz=GMT}{Release Calendar}:}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/TBOG Videos.csv"}{%
+	\zbullet{	\addtocounter{TBOG}{\insertVideos}	\insertTitle~(\insertVideos~Videos, \insertTime) \href{\insertVLink}{\insertType}, \href{\insertHLink}{\insertHighlights}}
+}

@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\input{"Preamble - CSV Lists.tex"}
+
+\newtotcounter{guide}
+\setcounter{guide}{0}
+
+\zclear
+\zstep{1}
+
+\begin{document}
+
+\begin{multicols*}{2}
+\textbf{Guides:} (\total{guide} total):
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Guides.csv"}
+{\zbox{		\stepcounter{guide}	\textbf{\href{\insertLink}{\insertTitle}}	\hfill	\insertDate}}
+\end{multicols*}
+
+\end{document}
+
+Date,Title,Link,Provided

@@ -1,0 +1,10 @@
+\newtotcounter{articles}
+\setcounter{articles}{0}
+
+\zclear
+
+\parbox{\columnwidth}{\textbf{Misc. Articles} \mbox{(\total{articles} total)}:}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Misc. Articles - Released.csv"}{
+	\zbullet{	\stepcounter{articles}	\href{\insertLink}{\insertTitle}}%
+}

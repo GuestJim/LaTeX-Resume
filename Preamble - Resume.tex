@@ -1,0 +1,150 @@
+%\usepackage[default]{opensans}
+\usepackage[default]{droidsans}
+%\usepackage[defaultsans]{droidsans}
+
+\usepackage{iftex}
+
+\ifLuaTeX
+%\usepackage{microtype}	%makes fi not 1 in PDF
+%	\DisableLigatures[f]{encoding=T1}
+\else
+
+\fi
+
+%\usepackage[T1]{fonenc}
+
+\usepackage{enumitem}
+
+\usepackage{geometry}
+%margin		all margines
+%inner		inner page margin
+%outer		outer page margin
+%top	top margin
+%headheight	header height within top margin
+%headsep	distance from header to text
+%footsep	distance from text to top of footer
+%footskip	distance from text to bottom of foot
+%bottom	bottom margin
+
+\geometry{
+	margin		=	0.4in,
+	top			=	0.30in,
+	headheight	=	0.4in,
+%	headsep		=	0.0in,
+	bottom		=	0.2in,
+	includefoot	=	false,
+	includehead	=	true,%	this simplifies working with these values
+}
+\savegeometry{firstpageQR}
+
+\geometry{
+	margin		=	0.4in,
+	top			=	1.0in,
+	headheight	=	0.5in,
+%	headsep		=	0.0in,
+	bottom		=	0.2in,
+	includefoot	=	false,
+}
+\savegeometry{firstpage}
+
+\geometry{
+	margin		=	0.4in,
+	bottom		=	0.6in,
+%	footsep		=	0.1in,
+%	footskip	=	0.0in,
+	includehead	=	false,
+	includefoot	=	true,
+}
+\savegeometry{secondpage}
+
+\usepackage{fancyhdr}
+%	Fancy Header package
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%	removes lines from header and footer
+
+\usepackage{multicol}
+\usepackage[bookmarks=false]{hyperref}
+\usepackage[compact]{titlesec}
+\usepackage{textcomp}
+%\usepackage[T1]{fontenc}
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[utf8]{inputenc}	%enables UTF8 encoding so ' work now
+
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{array, xcolor}
+
+%for having tables cross pages and entries line break
+\usepackage{longtable, multirow}
+
+\usepackage{tabularx}
+
+%makes it all ragged right, AKA left aligned
+\usepackage[document]{ragged2e}
+
+\definecolor{lightgray}{gray}{0.9}
+
+\newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
+
+% General Formatting
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty} % turn off page numbering
+\setlength{\parindent}{0pt}
+\setlength{\intextsep}{2.0pt plus 2.0pt minus 2.0pt}
+\setlength{\columnsep}{18pt}
+
+\setlist{nosep}
+
+%\setlist[itemize]{noitemsep,nolistsep}
+%\setlength\itemsep{1pt}
+
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black},
+}
+
+\newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}}
+%this will allow me to change the URL color in the document, which is needed for the QR code to be black
+
+% Section Title Formatting
+
+\titleformat{\section}
+	{\bfseries\uppercase} % format
+	{}                    % label
+	{0pt}                 % separation from left margin
+	{}                    % text before title
+%	[\hrule]              % text after title
+
+\titlespacing*{\section}
+	{0pt} % horizontal separation from left margin
+	{-2pt} % vertical spacing before title
+	{2pt} % vertical spacing after title
+
+%prevents hyphenation at end of lines
+\usepackage[none]{hyphenat}
+
+%this allows me to create a custom counter for published items and then show the totals at the top of the lists
+\usepackage{totcount}
+
+%for using CSV lists
+\usepackage{csvtools,csvsort}
+\setcsvseparator{,}
+
+\usepackage{qrcode}
+
+\newcommand{\cfbox}[2]{
+    \colorlet{currentcolor}{.}
+    {\color{#1}
+    \fbox{\color{currentcolor}#2}}
+}
+
+%Zebra Boxes Code
+
+\input{"Zebra.tex"}

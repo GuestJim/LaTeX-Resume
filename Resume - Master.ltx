@@ -1,0 +1,108 @@
+\documentclass[letterpaper,11pt]{article}
+
+\input{"Preamble - Resume.tex"}
+\usepackage[T1]{fontenc}
+\pagestyle{fancyplain}
+\fancyhf{}
+%	remove everything
+
+\begin{document}
+
+\newboolean{QR}
+\setboolean{QR}{true}
+%	this way I can toggle between having the header with (true) or without (false) the QR code
+
+\ifthenelse{\boolean{QR}}
+{
+	\loadgeometry{firstpageQR}
+	\chead{\input{"Resume Pieces/Header - Single - QR.ltx"}}
+}
+{
+	\loadgeometry{firstpage}
+	\chead{\input{"Resume Pieces/Header - Single.ltx"}}
+}
+
+%Experiences
+
+\begin{tabular}[H]{L!{\VRule}R}
+	\section{Experience}
+	&	\input{"Resume Pieces/Experiences/GLSC Education Specialist.ltx"}	\hrule	\\
+	&	\input{"Resume Pieces/Experiences/Overclockers Club.ltx"}	\hrule	\\
+	&	\input{"Resume Pieces/Experiences/Game QA.ltx"}	\hrule	\\
+	&	\input{"Resume Pieces/Experiences/Mathematics Learning Assistant.ltx"}	\hrule	\\
+	&	\input{"Resume Pieces/Experiences/SPS Outreach.ltx"}	\hrule	\\
+	&	\input{"Resume Pieces/Experiences/Body on Games.ltx"}
+\end{tabular}
+\rule[0.5ex]{1.0\textwidth}{0.5pt}
+
+%Education
+
+\begin{tabular}[T]{L!{\VRule}R}
+	\section{Education}
+	&	\input{"Resume Pieces/Education.ltx"}	\\
+\end{tabular}
+\rule[0.5ex]{1.0\textwidth}{0.5pt}
+
+%Misc experience/skills
+
+\begin{tabular}[T]{L!{\VRule}R}
+ 	\section{Misc.}
+	& \input{"Resume Pieces/Experiences/Misc.ltx"}
+\end{tabular}
+
+\newpage
+
+\loadgeometry{secondpage}
+
+\fancyhf{}
+\cfoot{\input{"Resume Pieces/Footer - Single.ltx"}}
+
+%References
+
+\section{References}
+\begin{minipage}[t][0ex][t]{1\textwidth}
+%	with 0ex there, it will just be as tall as it needs to be for the text
+	\begin{multicols*}{2}
+	\raggedcolumns
+		\input{"Resume Pieces/References.ltx"}
+	\end{multicols*}
+\end{minipage}
+\rule[0.5ex]{1.0\textwidth}{0.25pt}
+
+%Published Items
+\vspace{-1.75ex}
+%	to reduce the distance from the references
+
+%\begin{minipage}[t]{1\textwidth}
+\begin{multicols*}{1}
+\raggedcolumns
+	\section{Published Items}
+	\fontsize{10}{10.5}\selectfont
+	%	reduces font size to better fit tables
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Reviews.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Review Playthroughs - CSV.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Game Tweak Guides - CSV.ltx"}		
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Misc. Articles - CSV.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Guides.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/TBOG Videos - CSV.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/GitHub Repositories - CSV.ltx"}
+		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Stories - CSV.ltx"}
+%		\vspace{0.1ex}	\input{"Resume Pieces/Published Items/Game Streams.ltx"}
+\end{multicols*}
+%\end{minipage}
+
+\end{document}
+
+\iffalse
+
+%makes sure the footer is at the end, but is variable in size so the Published Items list can change
+\vspace{\fill}
+%\vspace{2ex}
+%useful for when the height of the published items would push off the footer
+\vspace{-1ex}
+\begin{minipage}[t][0ex][b]{1\textwidth}
+	\input{"Resume Pieces/Footer - single.ltx"}
+\end{minipage}
+
+%anything between these flags will not be processed
+\fi

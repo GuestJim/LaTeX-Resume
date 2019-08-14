@@ -1,0 +1,63 @@
+\usepackage{xcolor}
+
+\newcounter{box}
+%	need a counter for if it is odd or even line
+\newcounter{boxC}
+%	to separate the factor for coloring the boxes and the actual counter
+
+\def\colorodd{white!0}
+\def\coloreven{lightgray}
+%	sets default colors for the odd and even lines in the zebra boxes
+
+\newcommand{\zcolor}[2][white!0]{
+	\def\colorodd{#1}
+	\def\coloreven{#2}
+}
+%	allows the line colors to be changed
+%		changing the odd line color is optional
+
+\usepackage{calc}
+\newcounter{colorstep}
+\setcounter{colorstep}{1}
+\newcommand{\zstep}[1]{
+	\setcounter{colorstep}{#1}
+}
+%	for controlling the stepping between stripes, using the calc package
+
+\newcommand{\zbox}[2][0.975]{
+	\setcounter{boxC}{\value{box} / \value{colorstep} + 1}
+%		using the calc package, this will divide the box counter by the step and because it only returns the integer part, odd and even checks work
+%
+	\stepcounter{box}
+%		need to increment the counter second, so it starts at 0 for the coloring
+%	
+	\ifodd	\value{boxC}
+		{\colorbox{\colorodd}{\parbox{#1\linewidth}{#2}}}%
+	\else
+		{\colorbox{\coloreven}{\parbox{#1\linewidth}{#2}}}%
+	\fi
+%	the \ifodd command is from original TeX, which is why \value{series} does not have brackets surrounding it
+%	the % is needed at the end of the line to prevent extra vertical space from being added
+}
+%	this is the actual command to draw the zebra boxes and by using the counters, it does this automatically
+
+\newcommand{\zitem}[2][0.975]{
+	\zbox[#1]{\item	#2}
+}
+%	will put the zbox in a list
+
+\newcommand{\zbullet}[2][0.95]{
+	\stepcounter{box}
+	
+	\ifodd	\value{box}
+		\parbox{#1\linewidth}{\textbullet	\hspace{0.25em}	{\colorbox{\colorodd}{\parbox{#1\linewidth}{#2}}}}%
+	\else
+		\parbox{#1\linewidth}{\textbullet	\hspace{0.25em}	{\colorbox{\coloreven}{\parbox{#1\linewidth}{#2}}}}%
+	\fi
+}
+%	for when an itemized list will not work with zbox
+
+\newcommand{\zclear}{
+	\setcounter{box}{0}
+}
+%	clears the counter for zbox, so the coloring will reset between objects

@@ -1,0 +1,8 @@
+\zclear
+
+\textbf{Stories:}
+
+\sortapplyCSVfile[sort=alphabetical,variable=\insertDate,verbose=false]{"Resume Pieces/Published Items/CSV Lists/Stories.csv"}{
+	\zbullet{\insertTitle~-~\href{\inserteBookLink}{\inserteBook},~\href{\insertprintLink}{\insertpaperback}}
+}
+%unfortunately I cannot pull the \newline out of the individual options or it breaks alignment and spacing
